@@ -1,0 +1,19 @@
+{
+	
+	"name": "ukmnorge/apibundle",
+	"description": "",
+	"homepage": "http://github.com/UKMNorge/APIBundle",
+	"authors": [
+		{
+			"name": "Asgeir Stavik Hustad",
+			"email": "asgeirsh@ukmmedia.no",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"UKMNorge\\APIBundle\\": "src/"
+		}
+	}
+
+}

@@ -1,0 +1,7 @@
+ukmapi_homepage:
+    path:     /{version}/{category}/{action}/
+    defaults: { _controller: UKMAPIBundle:Default:api }
+    requirements:
+        version: '[a-z0-9]+'
+        category: '[a-z]+'
+        action: '[a-z0-9]+'
