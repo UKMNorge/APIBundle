@@ -1,9 +1,9 @@
 APIBundle
 =========
 
-Symfony-Bundle for å autorisere tilgang til og eksponere data fra et system som et API.
+Symfony-Bundle for å autorisere tilgang til og eksponere data fra et system som et API. To-delt, slik at man kan bruke kun AccessInterface / Access om man trenger tilgang, og resten av Bundlen om man vil ha ferdige Endpoints.
 
-APIBundle spesifiserer to interface det er viktig å vite om, [`AccessInterface`](src/Util/AccessInterface.php) og [`DispatcherInterface`](src/Util/DispatcherInterface.php). `DispatcherInterface` beskriver hvilke funksjoner som må implementeres i Entry-pointet til APIet.
+APIBundle spesifiserer to interface det er verdt å vite om, [`AccessInterface`](src/Util/AccessInterface.php) og [`DispatcherInterface`](src/Util/DispatcherInterface.php). `DispatcherInterface` beskriver hvilke funksjoner som må implementeres i Entry-pointet til APIet.
 
 ```
 interface DispatcherInterface {

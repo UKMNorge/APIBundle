@@ -25,7 +25,7 @@ class DefaultController extends Controller
     	}
 
     	// Now start the Authentication-process
-    	$apiAccess = new Access($api_key, $this->getParameter('ukmapi_system'));
+    	$apiAccess = new Access($api_key, $this->getParameter('ukmapi_system'), $this->getParameter('ukmapi_secret'));
     	
     	// Check if this request is signed
     	if(isset($_POST['SIGNED_REQUEST'])) {
