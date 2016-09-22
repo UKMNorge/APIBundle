@@ -1,7 +1,7 @@
 {
 	
 	"name": "ukmnorge/apibundle",
-	"description": "",
+	"description": "Authenticates requests for data from UKM-services",
 	"homepage": "http://github.com/UKMNorge/APIBundle",
 	"authors": [
 		{

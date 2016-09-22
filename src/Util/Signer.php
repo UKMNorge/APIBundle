@@ -12,7 +12,7 @@ class Signer {
 		$this->sys_secret = $sys_secret;
 	}
 	
-	public function sign($data) {
+	public function sign1($data) {
 		$data = array_change_key_case($data, CASE_LOWER);
 		ksort($data);
 		#var_dump($params);
@@ -29,6 +29,18 @@ class Signer {
 		return hash('sha256', $params);
 	}
 	
+	public function sign($time, $param = null) {
+		if($time == null) {
+			return false;
+		}
+		if(is_array($param)) {
+			return false;
+		}
+		$params = $this->sys_key . $param . $time . $this->sys_secret;
+		#return $params;
+		return hash('sha256', $params);
+	}
+
 	public function responseSign($sign, $time, $response) {
 		$response = http_build_query($response);
 		return hash('sha256', $sign . $time . $this->sys_secret . $response);

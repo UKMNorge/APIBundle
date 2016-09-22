@@ -42,13 +42,13 @@ class Access implements AccessInterface {
 
 		$this->time = time();
 
-		$data = array();
-		#$data = $this->parameters;
-		$data['signature'] = $this->SIGN1;
-		$data['permission'] = $permission;
-		$data['time'] = $this->time;
-
-		$this->SIGN2 = $this->signer->sign($data);
+		$data = $this->SIGN1.$permission;
+		#var_dump($data);
+		$this->SIGN2 = $this->signer->sign($this->time, $data);
+		if(false == $this->SIGN2) {
+			$this->errors[] = "UKMAPIBundle: Klarte ikke å signere requesten.";
+			return false;
+		}
 		#var_dump($this->SIGN2);
 		#dump($this->SIGN2);
 
@@ -64,7 +64,6 @@ class Access implements AccessInterface {
 		$curl->post($postdata);
 		try {
 			$result = $curl->process($url);
-			
 			
 			error_log('UKMAPIBundle: Curl-resultat: '.var_export($result, true));
 			if(!is_object($result)) {
